@@ -5,6 +5,7 @@ import com.max.generic_narrative.bean.IServiceBean;
 import com.max.generic_narrative.result.HttpResult;
 import com.max.generic_narrative.service.AbstractService;
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/b")
 public class BController extends AbstractController {
 
-  //  @Resource(name = "BServiceImpl")
-  @Autowired
-  @Qualifier(value = "BServiceImpl")
+    @Resource(name = "BServiceImpl")
+//  @Autowired
+//  @Qualifier(value = "BServiceImpl")
   private AbstractService<? super IServiceBean> bService;
 
   @PostConstruct

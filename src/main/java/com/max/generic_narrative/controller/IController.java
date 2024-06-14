@@ -5,8 +5,6 @@ import jakarta.servlet.http.HttpServletRequest;
 
 public interface IController {
 
-
-
   HttpResult doController(HttpServletRequest request);
 
 }
