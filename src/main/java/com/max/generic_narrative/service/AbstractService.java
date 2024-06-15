@@ -2,7 +2,7 @@ package com.max.generic_narrative.service;
 
 import com.max.generic_narrative.bean.IServiceBean;
 
-public abstract class AbstractService<T extends IServiceBean> implements IService<T>{
+public abstract class AbstractService<T extends IServiceBean> implements IService<T> {
 
   @Override
   public void doService(T serviceBean) {
@@ -24,4 +24,5 @@ public abstract class AbstractService<T extends IServiceBean> implements IServic
   protected void doBeforeService(T serviceBean) {
 
   }
+
 }

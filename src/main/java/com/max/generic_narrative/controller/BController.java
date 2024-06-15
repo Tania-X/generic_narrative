@@ -35,4 +35,5 @@ public class BController extends AbstractController {
   protected IServiceBean buildServiceBean() {
     return BServiceBean.builder().build();
   }
+
 }

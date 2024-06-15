@@ -20,4 +20,5 @@ public class AController2 extends AbstractController2<AServiceImpl, AServiceBean
   protected AServiceBean buildServiceBean() {
     return AServiceBean.builder().build();
   }
+
 }

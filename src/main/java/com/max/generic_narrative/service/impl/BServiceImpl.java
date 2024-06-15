@@ -26,4 +26,5 @@ public class BServiceImpl extends AbstractService<BServiceBean> {
     log.info("do B before service");
     super.doBeforeService(serviceBean);
   }
+
 }

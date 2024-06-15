@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 
 public abstract class AbstractController implements IController {
 
-
   protected AbstractService<? super IServiceBean> abstractService;
 
   @Override
