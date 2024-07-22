@@ -1,0 +1,17 @@
+server:
+  port: 10087
+
+spring:
+  application:
+    name: generic_narrative
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:9999/siyuan?useSSL=false
+    username: max
+    password: max!123
+
+mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.max.generic_narrative.bean
+  configuration:
+    map-underscore-to-camel-case: true
