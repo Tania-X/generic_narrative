@@ -22,22 +22,22 @@ public class CustomApplicationRunner implements ApplicationRunner {
   public void run(ApplicationArguments args) throws Exception {
     String startMode = args.getSourceArgs().length > 0 ? args.getSourceArgs()[0] : null;
     log.info("startMode = {}", startMode);
+    preCheck();
     if (STABLE_RUNNING.equals(startMode)) {
       log.info("stable start, running...");
     } else {
       // check
-      boolean checkResult = preCheck();
-      if (checkResult) {
-        RUNNING_STATUS = 0;
+      if (RUNNING_STATUS == 0) {
+        log.info("test running succeeds");
         System.exit(0);
       } else {
-        log.error("start for testing, exiting...");
+        log.error("test running fails");
         System.exit(1);
       }
     }
   }
 
-  public boolean preCheck() {
+  public int preCheck() {
     // do preCheck...
     boolean checkResult = true;
     try {
@@ -51,7 +51,7 @@ public class CustomApplicationRunner implements ApplicationRunner {
     } else {
       RUNNING_STATUS = 0;
     }
-    return checkResult;
+    return RUNNING_STATUS;
   }
 
 }

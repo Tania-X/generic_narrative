@@ -20,7 +20,7 @@ public class EmergencyController {
 
   @GetMapping("/preCheck")
   public int preCheck() {
-    return applicationRunner.preCheck() ? 0 : 1;
+    return applicationRunner.preCheck();
   }
 
 }
