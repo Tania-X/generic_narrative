@@ -42,7 +42,7 @@ public class CustomApplicationRunner implements ApplicationRunner {
     boolean checkResult = true;
     try {
       mapper.selectAll();
-    } catch (Exception e) {
+    } catch (Throwable e) {
       log.error("fail to connect to mysql");
       checkResult = false;
     }
