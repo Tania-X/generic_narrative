@@ -21,6 +21,17 @@ public class TestTableController {
     return mapper.selectAll();
   }
 
+  /**
+    curl -X POST http://localhost:10087/table/insertOne \
+         -H "Content-Type: application/json" \
+         -d '{
+               "id": 1,
+               "money": 1000,
+               "userId": 123
+             }'
+
+   Invoke-WebRequest -Uri http://localhost:10087/table/insertOne -Method POST -ContentType "application/json" -Body '{"id": 1, "money": 1000, "userId": 123}'
+   */
   @PostMapping("insertOne")
   public Object insertOne(@RequestBody TestTable testTable) {
     return mapper.insert(testTable);

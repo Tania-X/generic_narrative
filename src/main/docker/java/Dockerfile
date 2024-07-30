@@ -2,14 +2,14 @@ FROM openjdk:17
 
 LABEL maintainer="13126565350@163.com"
 
-ADD gen-alpha.jar /gen-alpha/gen-alpha.jar
+COPY gen-alpha.jar /gen-alpha/gen-alpha.jar
 
 WORKDIR /gen-alpha
 
 RUN ln -sf /usr/local/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 
-HEALTHCHECK --interval=1m --timeout=10s \
+HEALTHCHECK --interval=1m --timeout=10s --start-period=30s --retries=3 \
 CMD curl -f http://localhost:10087/emergency/checkHealth \
 | grep -q '^0$' || exit 1
 
