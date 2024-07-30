@@ -1,5 +1,7 @@
 package com.max.generic_narrative;
 
+import com.max.generic_narrative.mapper.TestTableMapper;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -8,6 +10,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class CustomApplicationRunner implements ApplicationRunner {
+
+  @Resource
+  private TestTableMapper mapper;
 
   private static final String STABLE_RUNNING = "0";
 
@@ -22,7 +27,7 @@ public class CustomApplicationRunner implements ApplicationRunner {
     } else {
       // check
       boolean checkResult = preCheck();
-      if (true) {
+      if (checkResult) {
         RUNNING_STATUS = 0;
         System.exit(0);
       } else {
@@ -34,8 +39,14 @@ public class CustomApplicationRunner implements ApplicationRunner {
 
   public boolean preCheck() {
     // do preCheck...
-    boolean checkResult = false;
-    if (checkResult) {
+    boolean checkResult = true;
+    try {
+      mapper.selectAll();
+    } catch (Exception e) {
+      log.error("fail to connect to mysql");
+      checkResult = false;
+    }
+    if (!checkResult) {
       RUNNING_STATUS = 1;
     } else {
       RUNNING_STATUS = 0;

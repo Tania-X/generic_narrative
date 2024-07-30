@@ -9,7 +9,7 @@ public interface TestTableMapper {
 
   @Insert("INSERT INTO test_table (money, user_id) VALUES (#{money}, #{userId})")
   @Options(useGeneratedKeys = true, keyProperty = "id")
-  void insert(TestTable testTable);
+  int insert(TestTable testTable);
 
   @Delete("DELETE FROM test_table WHERE id = #{id}")
   void delete(Long id);
