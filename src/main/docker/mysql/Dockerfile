@@ -5,7 +5,7 @@ ENV MYSQL_DATABASE=siyuan
 ENV MYSQL_USER=max
 ENV MYSQL_PASSWORD=max!123
 
-COPY init.sql /docker-entrypoint-initdb.d/
+COPY ./sql/init.sql /docker-entrypoint-initdb.d/
 
 # Add healthcheck
 HEALTHCHECK --interval=1m --timeout=10s --start-period=30s --retries=3 \

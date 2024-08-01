@@ -2,7 +2,7 @@ FROM openjdk:17
 
 LABEL maintainer="13126565350@163.com"
 
-COPY gen-alpha.jar /gen-alpha/gen-alpha.jar
+COPY ./gen-alpha.jar /gen-alpha/gen-alpha.jar
 
 WORKDIR /gen-alpha
 
